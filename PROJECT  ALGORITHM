@@ -1,0 +1,83 @@
+Here’s a clear **algorithm (step-by-step logic)** based on your C++ program:
+
+---
+
+## **Algorithm: Fraud URL Detection**
+
+1. **Start**
+
+2. **Input URL**
+
+   * Prompt the user to enter a URL.
+   * Store it in a variable `url`.
+
+3. **Initialize Flag**
+
+   * Set a boolean variable `suspicious = false`.
+
+4. **Check for Suspicious Keywords**
+
+   * Define a list of keywords:
+
+     * `"login", "verify", "secure", "update", "free", "bonus"`
+   * For each keyword:
+
+     * If the keyword is found in the URL:
+
+       * Print warning: *"Contains suspicious keywords"*
+       * Set `suspicious = true`
+
+5. **Check for Numbers in URL**
+
+   * Traverse each character in the URL:
+
+     * If any character is a digit:
+
+       * Print warning: *"Contains numbers"*
+       * Set `suspicious = true`
+       * Stop checking further
+
+6. **Check URL Length**
+
+   * If length of URL > 40:
+
+     * Print warning: *"URL is too long"*
+     * Set `suspicious = true`
+
+7. **Check Security (HTTPS)**
+
+   * If URL does NOT start with `"https://"`:
+
+     * Print warning: *"Not using HTTPS"*
+     * Set `suspicious = true`
+
+8. **Final Decision**
+
+   * Print separator line
+   * If `suspicious == true`:
+
+     * Print:
+
+       * "FRAUD LINK DETECTED"
+       * "ACCESS BLOCKED"
+       * "This link is unsafe"
+   * Else:
+
+     * Print:
+
+       * "SAFE LINK"
+       * "ACCESS GRANTED"
+       * "You can proceed safely"
+
+9. **End**
+
+---
+
+## **Optional Improvement Insight**
+
+Your algorithm works, but it’s quite strict:
+
+* Not all numbers or long URLs are malicious.
+* Words like “secure” or “login” are common in legitimate sites.
+
+If you want, I can upgrade this into a **scoring-based detection system (more realistic like browsers use)**.
