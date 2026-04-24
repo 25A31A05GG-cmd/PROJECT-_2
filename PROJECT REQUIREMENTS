@@ -1,0 +1,62 @@
+1. Functional Requirements
+
+These describe what the system must do:
+
+The system should accept a URL as input from the user.
+The system should check for suspicious keywords in the URL.
+The system should detect if the URL contains numeric characters.
+The system should verify whether the URL length exceeds a defined limit (e.g., 40 characters).
+The system should check if the URL uses HTTPS protocol.
+The system should display warning messages for each detected issue.
+The system should classify the URL as:
+Safe, or
+Fraudulent (unsafe)
+The system should display a final decision:
+“Access Granted” for safe links
+“Access Blocked” for suspicious links
+2. Non-Functional Requirements
+
+These describe how the system should perform:
+
+Performance:
+The program should analyze the URL instantly (low execution time).
+Usability:
+The interface should be simple (console-based input/output).
+Reliability:
+The system should consistently produce the same result for the same input.
+Maintainability:
+The code should be easy to update (e.g., adding more keywords).
+Portability:
+The program should run on any system with a C++ compiler.
+3. Software Requirements
+Programming Language: C++
+Compiler: Any standard C++ compiler (e.g., GCC, MSVC, Clang)
+Libraries Used:
+<iostream> (for input/output)
+<string> (for string handling)
+<cctype> (for isdigit() function)
+4. Hardware Requirements
+A computer/laptop with:
+Minimum 2 GB RAM
+Any modern processor
+Keyboard for input and display screen for output
+5. Input Requirements
+A valid URL string entered by the user
+Example:
+https://example.com
+http://free-bonus123.com
+6. Output Requirements
+Warning messages (if applicable), such as:
+Contains suspicious keywords
+Contains numbers
+URL too long
+Not using HTTPS
+Final result:
+Safe Link (Access Granted) OR
+Fraud Link Detected (Access Blocked)
+7. Constraints
+The system uses rule-based logic only (no AI/ML).
+Detection accuracy depends on predefined rules.
+May produce:
+False positives (safe link flagged unsafe)
+False negatives (unsafe link marked safe)
