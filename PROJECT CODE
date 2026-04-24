@@ -1,0 +1,80 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Check for suspicious keywords
+bool hasSuspiciousWords(string url) {
+    string keywords[] = {"login", "verify", "secure", "update", "free", "bonus"};
+    
+    for (string word : keywords) {
+        if (url.find(word) != string::npos) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Check if URL contains numbers
+bool hasNumbers(string url) {
+    for (char c : url) {
+        if (isdigit(c)) return true;
+    }
+    return false;
+}
+
+// Check if URL is too long
+bool isTooLong(string url) {
+    return url.length() > 40;
+}
+
+// Check HTTPS
+bool isSecure(string url) {
+    return url.find("https://") == 0;
+}
+
+int main() {
+    string url;
+    
+    cout << "Enter URL: ";
+    cin >> url;
+
+    bool suspicious = false;
+
+    // Apply rules
+    if (hasSuspiciousWords(url)) {
+        cout << "⚠ Contains suspicious keywords\n";
+        suspicious = true;
+    }
+
+    if (hasNumbers(url)) {
+        cout << "⚠ Contains numbers\n";
+        suspicious = true;
+    }
+
+    if (isTooLong(url)) {
+        cout << "⚠ URL is too long\n";
+        suspicious = true;
+    }
+
+    if (!isSecure(url)) {
+        cout << "⚠ Not using HTTPS\n";
+        suspicious = true;
+    }
+
+    // Final decision
+    cout << "\n-----------------------------\n";
+
+    if (suspicious) {
+        cout << "❌ FRAUD LINK DETECTED!\n";
+        cout << "🚫 ACCESS BLOCKED\n";
+        cout << "This link is unsafe. You cannot proceed.\n";
+    } else {
+        cout << "✅ SAFE LINK\n";
+        cout << "🔓 ACCESS GRANTED\n";
+        cout << "You can safely proceed to the website.\n";
+    }
+
+    cout << "-----------------------------\n";
+
+    return 0;
+}
