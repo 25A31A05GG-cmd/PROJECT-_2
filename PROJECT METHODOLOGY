@@ -1,0 +1,81 @@
+
+## **Methodology: Fraud URL Detection System**
+
+This program follows a **rule-based detection approach** to identify potentially fraudulent URLs. Instead of using machine learning, it applies predefined heuristics (simple rules) to evaluate the safety of a link.
+
+---
+
+### **1. Input Collection**
+
+The system begins by accepting a URL from the user.
+This URL becomes the subject for analysis.
+
+---
+
+### **2. Feature Extraction**
+
+The program analyzes the URL by extracting specific characteristics (features) that are commonly associated with phishing or malicious links:
+
+* **Keyword Analysis**
+
+  * Checks for suspicious terms such as *login, verify, secure, update, free, bonus*.
+  * These words are often used in phishing attacks to trick users.
+
+* **Numeric Analysis**
+
+  * Detects the presence of numbers in the URL.
+  * Fraudulent URLs sometimes use numbers to mimic legitimate domains.
+
+* **Length Analysis**
+
+  * Evaluates the length of the URL.
+  * Very long URLs can be used to hide malicious intent.
+
+* **Protocol Analysis**
+
+  * Verifies whether the URL uses **HTTPS**.
+  * Secure websites typically use HTTPS for encrypted communication.
+
+---
+
+### **3. Rule-Based Evaluation**
+
+Each extracted feature is checked against predefined rules:
+
+* If any suspicious condition is met:
+
+  * A warning is generated.
+  * A flag (`suspicious`) is set to **true**.
+
+This step does not assign weights—it simply flags any violation.
+
+---
+
+### **4. Decision Making**
+
+After evaluating all rules:
+
+* If **at least one rule is violated**:
+
+  * The URL is classified as **fraudulent (unsafe)**.
+  * Access is blocked.
+
+* If **no rules are violated**:
+
+  * The URL is classified as **safe**.
+  * Access is allowed.
+
+---
+
+### **5. Output Generation**
+
+The system displays:
+
+* Specific warnings (if any)
+* Final verdict:
+
+  * **Unsafe (Fraud link detected)**
+  * **Safe (Access granted)**
+
+---
+
